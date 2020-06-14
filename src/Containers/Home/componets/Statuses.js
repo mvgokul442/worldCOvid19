@@ -19,7 +19,7 @@ export default function Statuses(props) {
         <div>
             <Row className="justify-content-md-center"> 
 
-                <Col lg={3} xs={6}>
+                <Col lg={3} xs={4}>
                     <div style={divStyle}>
                         <span style={{color:"#007bff"}}>
                         <h2>{Global.TotalConfirmed}</h2>
@@ -29,7 +29,7 @@ export default function Statuses(props) {
                     </div>
                 </Col>
 
-                <Col lg={3} xs={6}>
+                <Col lg={3} xs={4}>
                     <div style={divStyle}>
                     <span style={{color:"#6c757d"}}>
                         <h2>{Global.TotalDeaths}</h2>
@@ -39,7 +39,7 @@ export default function Statuses(props) {
                     </div>
                 </Col>
 
-                <Col lg={3} xs={6}>
+                <Col lg={3} xs={4}>
                     <div style={divStyle}>
                     <span style={{color:"#17a2b8"}}>
                         <h2>{Global.TotalRecovered}</h2>
