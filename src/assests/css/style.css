@@ -1,0 +1,20 @@
+@font-face {
+    font-family: 'MyFont';
+    src: local('MyFont'), url(../fonts/Archivo-Regular.ttf) format('ttf');
+  }
+ 
+  input.form-control:focus {
+    outline: none !important;
+    transition: background-color 1s, border-color 1s;
+    border:2px solid #2045f5;
+    box-shadow:none;
+}
+
+div.search-box {
+    position: sticky;
+    top: 20px;
+    padding-top: 50px;
+    padding-bottom: 30px;
+    background-color: #fff;
+    border-bottom: 1px solid rgb(212, 211, 211)
+  }
