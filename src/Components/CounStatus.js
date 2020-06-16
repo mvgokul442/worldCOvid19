@@ -19,13 +19,13 @@ function CountStatus(props){
                 <Col lg={2} md={3} xs={4} >
                 <Badge variant="warning" style={divStyle}>
                 <h4>{ Global.cases ? NumberFormat(Global.cases) : 0}</h4>
-                <p> {Global.todayCases ? +"+ "+NumberFormat(Global.todayCases) : <br/> }</p>
+                <p> {Global.todayCases ? "+ "+ NumberFormat(Global.todayCases) : <br/> }</p>
                 Cases
                 </Badge>{' '}
                 </Col>
                 <Col lg={2} md={3} xs={4} >
                 <Badge variant="danger" style={divStyle}>
-                <h4>{Global.active? +"+ "+ NumberFormat(Global.active): 0}</h4>
+                <h4>{Global.active? NumberFormat(Global.active): 0}</h4>
                 <p><br/></p>
                 Active
                 </Badge>{' '}
@@ -33,14 +33,14 @@ function CountStatus(props){
                 <Col lg={2} md={3} xs={4}>
                 <Badge variant="secondary" style={divStyle}>
                 <h4>{Global.deaths ? NumberFormat(Global.deaths): 0}</h4>
-                <p>{Global.todayDeaths ? +"+ "+ NumberFormat(Global.todayDeaths) : <br/>}</p>
+                <p>{Global.todayDeaths ? "+ "+ NumberFormat(Global.todayDeaths) : <br/>}</p>
                 Fatal 
                 </Badge>{' '}
                 </Col>
                 <Col lg={2} md={3} xs={4}>
                 <Badge variant="info" style={divStyle}>
                 <h4>{Global.recovered ? NumberFormat(Global.recovered) : 0}</h4>
-                <p> {Global.todayRecovered ? +"+ "+ NumberFormat(Global.todayRecovered) : <br/>}</p>
+                <p> {Global.todayRecovered ? "+ "+ NumberFormat(Global.todayRecovered) : <br/>}</p>
                 Recovered
                 </Badge>{' '}
                 </Col>
