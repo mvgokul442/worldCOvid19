@@ -28,6 +28,7 @@ function Home(props) {
     const { summary, countryData } = props.layout
 
     const changeSelect = async (country) => {
+        setCountry({})
         let coun = await _.find(countryData, ['country', country]);
         setGlobal(coun)
         getConInfo(country).then((res) => {

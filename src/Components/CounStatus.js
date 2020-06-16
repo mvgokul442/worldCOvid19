@@ -18,42 +18,42 @@ function CountStatus(props){
             <Row>
                 <Col lg={2} md={3} xs={4} >
                 <Badge variant="warning" style={divStyle}>
-                <h4>{NumberFormat(Global.cases)}</h4>
-                <p>+ {NumberFormat(Global.todayCases)}</p>
+                <h4>{ Global.cases ? NumberFormat(Global.cases) : 0}</h4>
+                <p> {Global.todayCases ? +"+ "+NumberFormat(Global.todayCases) : <br/> }</p>
                 Cases
                 </Badge>{' '}
                 </Col>
                 <Col lg={2} md={3} xs={4} >
                 <Badge variant="danger" style={divStyle}>
-                <h4>{NumberFormat(Global.active)}</h4>
+                <h4>{Global.active? +"+ "+ NumberFormat(Global.active): 0}</h4>
                 <p><br/></p>
                 Active
                 </Badge>{' '}
                 </Col>
                 <Col lg={2} md={3} xs={4}>
                 <Badge variant="secondary" style={divStyle}>
-                <h4>{NumberFormat(Global.deaths)}</h4>
-                <p>+ {NumberFormat(Global.todayDeaths)}</p>
+                <h4>{Global.deaths ? NumberFormat(Global.deaths): 0}</h4>
+                <p>{Global.todayDeaths ? +"+ "+ NumberFormat(Global.todayDeaths) : <br/>}</p>
                 Fatal 
                 </Badge>{' '}
                 </Col>
                 <Col lg={2} md={3} xs={4}>
                 <Badge variant="info" style={divStyle}>
-                <h4>{NumberFormat(Global.recovered)}</h4>
-                <p>+ {NumberFormat(Global.todayRecovered)}</p>
+                <h4>{Global.recovered ? NumberFormat(Global.recovered) : 0}</h4>
+                <p> {Global.todayRecovered ? +"+ "+ NumberFormat(Global.todayRecovered) : <br/>}</p>
                 Recovered
                 </Badge>{' '}
                 </Col>
                 <Col lg={2} md={3} xs={4}>
                 <Badge variant="primary" style={divStyle}>
-                <h4>{NumberFormat(Global.tests)}</h4>
+                <h4>{Global.tests ? NumberFormat(Global.tests): 0}</h4>
                 <p><br/></p>
                 Tests
                 </Badge>{' '}
                 </Col>
                 <Col lg={2} md={3} xs={4}>
                 <Badge variant="success" style={divStyle}>
-                <h4>{NumberFormat(Global.population)}</h4>
+                <h4>{Global.population ? NumberFormat(Global.population) : 0}</h4>
                 <p><br/></p>
                 Population
                 </Badge> 
