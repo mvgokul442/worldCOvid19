@@ -9,7 +9,7 @@ import {
 const geoUrl =
   "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json";
 
-const MapChart = (props) => {
+const MapChart = ({countryData}) => {
   return (
     <ComposableMap >
       <Geographies geography={geoUrl}>
@@ -24,11 +24,9 @@ const MapChart = (props) => {
           ))
         }
       </Geographies>
-      {props.countryData.map((cdata,index)=>
-      <Marker key={cdata.Country+index} coordinates={[cdata.Lon, cdata.Lat]}>
+      <Marker  coordinates={[countryData.long, countryData.lat]}>
         <circle r={3} fill="#F53" />
       </Marker>
-      )}
     </ComposableMap>
   );
 };

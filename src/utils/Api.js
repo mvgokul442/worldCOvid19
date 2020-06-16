@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const API = axios.create({
-  baseURL: 'https://api.covid19api.com/',
+  baseURL: 'https://corona.lmao.ninja/v2/',
   timeout:20000,
   responseType: "json",
 });

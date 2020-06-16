@@ -12,3 +12,17 @@ export function getSummarySuccess(summary){
       summary
     }
 }
+
+export function getAllcountrySuccess(countryData){
+  return{
+    type:layoutCon.ALL_COUNTRY_SUCCESS,
+    countryData
+  }
+}
+
+export function onLoader(loader){
+  return{
+    type:layoutCon.LOADER,
+    loader
+  }
+}

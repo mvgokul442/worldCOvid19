@@ -1,5 +1,7 @@
 import React from "react"
 import { Row, Col,Jumbotron } from "react-bootstrap"
+import {Datetime} from "../../../utils/dateFormat"
+import NumberFormat from "../../../utils/NumberFormat"
 
 const divStyle = {
     // backgroundColor: "#f5f5f5",
@@ -17,14 +19,19 @@ export default function Statuses(props) {
     const {Global}=props
     return (
         <div>
+            <Row className="justify-content-md-center">
+            <Col lg={9}>
+                <p className="secondary-para"> Updated <strong>{Datetime(Global.updated)}</strong></p>
+                </Col>
+            </Row>
             <Row className="justify-content-md-center"> 
-
                 <Col lg={3} xs={4}>
                     <div style={divStyle}>
                         <span style={{color:"#007bff"}}>
-                        <h2>{Global.TotalConfirmed}</h2>
-                        <p>+{Global.NewConfirmed}</p>
+                        <h2>{NumberFormat(Global.cases)}</h2>
+                        <p>+ {NumberFormat(Global.todayCases)}</p>
                          Confirmed
+                         
                         </span>
                     </div>
                 </Col>
@@ -32,8 +39,8 @@ export default function Statuses(props) {
                 <Col lg={3} xs={4}>
                     <div style={divStyle}>
                     <span style={{color:"#6c757d"}}>
-                        <h2>{Global.TotalDeaths}</h2>
-                        <p>+{Global.NewDeaths}</p>
+                        <h2>{NumberFormat(Global.deaths)}</h2>
+                        <p>+ {NumberFormat(Global.todayDeaths)}</p>
                          Deaths
                         </span>
                     </div>
@@ -42,8 +49,8 @@ export default function Statuses(props) {
                 <Col lg={3} xs={4}>
                     <div style={divStyle}>
                     <span style={{color:"#17a2b8"}}>
-                        <h2>{Global.TotalRecovered}</h2>
-                        <p>+{Global.NewRecovered}</p>
+                        <h2>{NumberFormat(Global.recovered)}</h2>
+                        <p>+ {NumberFormat(Global.todayRecovered)}</p>
                          Recovered
                         </span>
                     </div>

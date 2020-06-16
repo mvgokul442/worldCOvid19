@@ -15,17 +15,14 @@ import Loader from "../Components/Loader"
 
 
  function Layout(props) {
-     const [loader,SetLoader] = useState(false)
     useEffect(()=>{
         callSummary()
     },[])
 
-    const callSummary=async()=>{
-        SetLoader(true)
-        await props.getSummary()
-        SetLoader(false)
+    const callSummary=()=>{
+         props.getSummary()
     }
-
+    const {loader} = props.layout
     return (
         <div>
             {loader &&

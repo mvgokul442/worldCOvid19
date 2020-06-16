@@ -18,7 +18,7 @@ export const getByCountrySuccess=(data)=>{
 
     export async function getConInfo(countryName) {
         try {
-            const result = await API.get(Url.getbycountry+countryName+"/status/confirmed/live")
+            const result = await API.get(Url.getbycountry+countryName+"?lastdays=30")
             if (result.status === 200) {
                 return (result.data)
             }

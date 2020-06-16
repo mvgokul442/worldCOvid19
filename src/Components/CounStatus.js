@@ -1,5 +1,6 @@
 import React,{memo} from "react"
 import {Row,Col,Badge} from "react-bootstrap"
+import NumberFormat from "../utils/NumberFormat"
 
 
 const divStyle = {
@@ -16,40 +17,46 @@ function CountStatus(props){
         <div>
             <Row>
                 <Col lg={2} md={3} xs={4} >
-                <Badge variant="danger" style={divStyle}>
-                <h4>{Global.NewConfirmed}</h4>
-                New Confirmed
-                </Badge>{' '}
-                </Col>
-                <Col lg={2} md={3} xs={4}>
-                <Badge variant="primary" style={divStyle}>
-                <h4>{Global.TotalConfirmed}</h4>
-                Total Confirmed
-                </Badge>{' '}
-                </Col>
-                <Col lg={2} md={3} xs={4}>
                 <Badge variant="warning" style={divStyle}>
-                <h4>{Global.NewDeaths}</h4>
-                New Deaths
+                <h4>{NumberFormat(Global.cases)}</h4>
+                <p>+ {NumberFormat(Global.todayCases)}</p>
+                Cases
+                </Badge>{' '}
+                </Col>
+                <Col lg={2} md={3} xs={4} >
+                <Badge variant="danger" style={divStyle}>
+                <h4>{NumberFormat(Global.active)}</h4>
+                <p><br/></p>
+                Active
                 </Badge>{' '}
                 </Col>
                 <Col lg={2} md={3} xs={4}>
                 <Badge variant="secondary" style={divStyle}>
-                <h4>{Global.TotalDeaths}</h4>
-                Total Deaths
+                <h4>{NumberFormat(Global.deaths)}</h4>
+                <p>+ {NumberFormat(Global.todayDeaths)}</p>
+                Fatal 
+                </Badge>{' '}
+                </Col>
+                <Col lg={2} md={3} xs={4}>
+                <Badge variant="info" style={divStyle}>
+                <h4>{NumberFormat(Global.recovered)}</h4>
+                <p>+ {NumberFormat(Global.todayRecovered)}</p>
+                Recovered
+                </Badge>{' '}
+                </Col>
+                <Col lg={2} md={3} xs={4}>
+                <Badge variant="primary" style={divStyle}>
+                <h4>{NumberFormat(Global.tests)}</h4>
+                <p><br/></p>
+                Tests
                 </Badge>{' '}
                 </Col>
                 <Col lg={2} md={3} xs={4}>
                 <Badge variant="success" style={divStyle}>
-                <h4>{Global.NewRecovered}</h4>
-                New Recovered
+                <h4>{NumberFormat(Global.population)}</h4>
+                <p><br/></p>
+                Population
                 </Badge> 
-                </Col>
-                <Col lg={2} md={3} xs={4}>
-                <Badge variant="info" style={divStyle}>
-                <h4>{Global.TotalRecovered}</h4>
-                Total Recovered
-                </Badge>{' '}
                 </Col>
             </Row>
         </div>
