@@ -9,6 +9,9 @@ export default function Footer(){
     <div className="container text-center">
       <small>Copyright &copy; World Covid19</small>
     </div>
+    <div style={{float:"right"}}>
+        <small>Source : corona.lmao.ninja</small>
+    </div>
   </footer>
     )
 }
