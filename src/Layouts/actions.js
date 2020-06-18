@@ -20,9 +20,24 @@ export function getAllcountrySuccess(countryData){
   }
 }
 
+export function getNewsdata(newsData){
+  return{
+    type:layoutCon.NEWS_SUCCESS,
+    newsData
+  }
+}
+
+export function getWhoNewsdata(whonewsData){
+  return{
+    type:layoutCon.WHO_NEWS_SUCCESS,
+    whonewsData
+  }
+}
+
 export function onLoader(loader){
   return{
     type:layoutCon.LOADER,
     loader
   }
 }
+

@@ -5,24 +5,22 @@ import { createStructuredSelector } from "reselect";
 import { compose } from "redux";
 
 import makeLayoutselect from "../../Layouts/selectors"
+import Search from "../../Components/SearchOn"
 import Whoresults from "../../components/whoResults"
-import Search from "../../components/SearchOn"
 var parseString = require('xml2js').parseString;
 
-
-function Who(props) {
-
+function FeedsData(props){
     const [result,setResults] = useState({})
     const [filterRes,setFilter] = useState([])
 
     useEffect(() => {
-        parseString(props.layout.whoData, function (err, result) {
+        parseString(props.layout.newsData, function (err, result) {
             if (result) {
                 setResults(result)
                 setFilter(result.rss.channel[0].item)
             }
         });
-    }, [props.layout.whoData])
+    }, [props.layout.newsData])
 
     const handleChange=(searchName)=>{
         let newArray =   
@@ -33,9 +31,9 @@ function Who(props) {
             });
             setFilter(newArray)
     }
-    return (
+    return(
         <div>
-            {result.rss &&
+            {/* {result.rss && */}
             <div>
                 <div className="search-box">
                 <Search handleChange={handleChange} />
@@ -47,16 +45,16 @@ function Who(props) {
                 <p>No results found</p>
                 }
             </div>
-            }
         </div>
     )
 }
 
-
 const mapStateToProps = createStructuredSelector({
     layout: makeLayoutselect()
   });
-    
+  
+
+  
   
   const withConnect = connect(
     mapStateToProps,
@@ -66,4 +64,4 @@ const mapStateToProps = createStructuredSelector({
   export default compose(
     withConnect,
     memo
-  )(Who);
+  )(FeedsData);

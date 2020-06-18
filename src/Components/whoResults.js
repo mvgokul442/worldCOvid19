@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import {Datetime} from "../../../utils/dateFormat"
+import {Datetime} from "../utils/dateFormat"
 
 const h4Style={
     color:"#0000FF",

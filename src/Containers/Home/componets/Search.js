@@ -84,7 +84,7 @@ function Search(props) {
         countries = _.orderBy(countries, ['cases'], ['desc'])
         countries.forEach(element => {
             options.push({
-                label: element.country,
+                label: element.country +"    ("+element.cases+")",
                 value: element.country,
             })
         });

@@ -3,8 +3,9 @@ import * as layoutCon from "./contants"
 export const initialState = {
     summary:{},
     countryData:[],
-    loader:false
-    
+    loader:false,
+    newsData:{},
+    whoData:{}
 };
 
 
@@ -26,6 +27,18 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 loader: action.loader,
+            }
+        }
+        case layoutCon.NEWS_SUCCESS:{
+            return{
+                ...state,
+                newsData:action.newsData
+            }
+        }
+        case layoutCon.WHO_NEWS_SUCCESS:{
+            return{
+                ...state,
+                whoData:action.whonewsData
             }
         }
         default:

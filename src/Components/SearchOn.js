@@ -5,7 +5,7 @@ const searchStyle={
     borderRadius: "20px",
 }
 
-export default function Search(props) {
+export default function SearchBar(props) {
 
     const handleChange=(e)=>{
           props.handleChange(e.target.value)

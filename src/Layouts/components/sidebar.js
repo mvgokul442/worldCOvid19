@@ -32,8 +32,13 @@ export default function Sidebar(props) {
                             <a>Home</a>
                         </Link>
                     </Nav.Link>
+                    <Nav href="#"></Nav>
                     <Nav.Link href="#">
                         <Link className="nav-link" href="/who"><a>WHO News</a></Link>
+                    </Nav.Link>
+                    <Nav href="#"></Nav>
+                    <Nav.Link href="#">
+                        <Link className="nav-link" href="/feeds"><a>Feeds</a></Link>
                     </Nav.Link>
                 </Nav>
             </Navbar.Collapse>

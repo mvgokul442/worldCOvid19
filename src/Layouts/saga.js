@@ -1,9 +1,9 @@
 import { takeLatest, call, put } from "redux-saga/effects"
 
-import {getSummarySuccess,getAllcountrySuccess,onLoader} from "./actions"
+import {getSummarySuccess,getAllcountrySuccess,onLoader,getNewsdata,getWhoNewsdata} from "./actions"
 import * as layoutCon from "./contants"
 import Url from "../utils/Url"
-import {API} from "../utils/Api"
+import {API,API2,API3} from "../utils/Api"
 
 export function* summaryGet() {
     try {
@@ -33,7 +33,37 @@ export function* countryGet() {
 
 }
 
+export function* newsGet() {
+    try {
+        yield put(onLoader(true))
+        const result = yield call(() => API3.get(Url.news))
+        if (result.status === 200) {
+            yield put(getNewsdata(result.data))
+        }
+    } catch (error) {
+        yield put(onLoader(false))
+        console.log(error)
+    }
+
+}
+
+export function* whoNews() {
+    try {
+        yield put(onLoader(true))
+        const result = yield call(() => API2.get(Url.who_news))
+        if (result.status === 200) {
+            yield put(getWhoNewsdata(result.data))
+        }
+    } catch (error) {
+        yield put(onLoader(false))
+        console.log(error)
+    }
+
+}
+
 export default function* layoutSaga() {
     yield takeLatest(layoutCon.SUMMARY,summaryGet)
     yield takeLatest(layoutCon.SUMMARY,countryGet)
+    yield takeLatest(layoutCon.SUMMARY,newsGet)
+    yield takeLatest(layoutCon.SUMMARY,whoNews)
 }
