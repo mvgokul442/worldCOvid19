@@ -5,7 +5,7 @@ import { createStructuredSelector } from "reselect";
 import { compose } from "redux";
 
 import makeLayoutselect from "../../Layouts/selectors"
-import Search from "../../Components/SearchOn"
+import Search from "../Who/components/Onsearch"
 import Whoresults from "../../components/whoResults"
 var parseString = require('xml2js').parseString;
 

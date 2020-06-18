@@ -6,7 +6,7 @@ import { compose } from "redux";
 
 import makeLayoutselect from "../../Layouts/selectors"
 import Whoresults from "../../components/whoResults"
-import Search from "../../components/SearchOn"
+import Search from "./components/Onsearch"
 var parseString = require('xml2js').parseString;
 
 
