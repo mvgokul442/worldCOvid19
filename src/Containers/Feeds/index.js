@@ -6,7 +6,7 @@ import { compose } from "redux";
 
 import makeLayoutselect from "../../Layouts/selectors"
 import Search from "../Who/components/Onsearch"
-import Whoresults from "../../components/whoResults"
+import Whoresults from "../../Components/whoResults"
 var parseString = require('xml2js').parseString;
 
 function FeedsData(props){
