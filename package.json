@@ -15,7 +15,7 @@
   "dependencies": {
     "axios": "^0.22.0",
     "bootstrap": "^4.5.0",
-    "highcharts": "^8.1.1",
+    "highcharts": "^9.0.0",
     "highcharts-react-official": "^3.0.0",
     "immer": "^9.0.6",
     "lodash": "^4.17.21",
