@@ -1,6 +1,0 @@
-export const SUMMARY = "layout/SUMMARY"
-export const SUMMARY_SUCCESS = "layout/SUMMARY_SUCCESS"
-export const ALL_COUNTRY_SUCCESS = "layout/ALL_COUNTRY_SUCCESS"
-export const LOADER = "layout/LOADER"
-export const WHO_NEWS_SUCCESS = "layout/WHO_NEWS_SUCCESS"
-export const NEWS_SUCCESS = "layout/NEWS_SUCCESS"

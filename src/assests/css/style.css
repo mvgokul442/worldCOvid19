@@ -1,50 +1,73 @@
 @font-face {
-    font-family: 'MyFont';
-    src: local('MyFont'), url(../fonts/Archivo-Regular.ttf) format('ttf');
-  }
- 
-  input.form-control:focus {
-    outline: none !important;
-    transition: background-color 1s, border-color 1s;
-    border:2px solid #2045f5;
-    box-shadow:none;
+  font-family: 'MyFont';
+  src: local('MyFont'), url(../fonts/Archivo-Regular.ttf) format('ttf');
+}
+
+body {
+  font-size: 16px;
+}
+
+input.form-control:focus {
+  outline: none !important;
+  transition: background-color 1s, border-color 1s;
+  border: 2px solid #2045f5;
+  box-shadow: none;
 }
 
 div.search-box {
-    position: sticky;
-    top: 20px;
-    padding-top: 50px;
-    padding-bottom: 30px;
-    background-color: #fff;
-    border-bottom: 1px solid rgb(212, 211, 211)
-  }
-
-.secondary-para{
-  color:#8a8b8c;
-  font-size: 14px
+  position: sticky;
+  top: 20px;
+  padding-top: 50px;
+  padding-bottom: 30px;
+  background-color: #fff;
+  border-bottom: 1px solid rgb(212, 211, 211);
 }
 
+.secondary-para {
+  color: #8a8b8c;
+  font-size: 14px;
+}
 
-  @media only screen and (max-width: 600px) {
-    body {
-      font-size: 12px
-    }
-    h2{
-      font-size:16px 
-    }
-    h4{
-      font-size: 14px
-    }
-    div.css-1som4x6-control{
-      height: 50px;
-      padding: 6px
-    }
-    div.css-1som4x6-control:hover{
-      height: 50px;
-      padding: 6px
-    }
-    div.css-9bvx9j-control{
-      height: 50px;
-      padding: 6px
-    }
-  }  
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    font-size: 10px;
+  }
+  h2 {
+    font-size: 0.8rem;
+  }
+  h4 {
+    font-size: 0.6rem;
+  }
+  */ div.css-1som4x6-control {
+    height: 50px;
+    padding: 6px;
+  }
+  div.css-1som4x6-control:hover {
+    height: 50px;
+    padding: 6px;
+  }
+  div.css-9bvx9j-control {
+    height: 50px;
+    padding: 6px;
+  }
+}
+
+@media only screen and (max-width: 760px) {
+  body {
+    font-size: 12px;
+  }
+  h2 {
+    font-size: 1rem;
+  }
+  h4 {
+    font-size: 0.8rem;
+  }
+}
