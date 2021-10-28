@@ -1,102 +1,65 @@
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable react/prop-types */
 import React from 'react';
-import Highcharts from 'highcharts';
-import HighchartsReact from 'highcharts-react-official';
-import PropTypes from 'prop-types';
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+} from 'recharts';
 
-export const options = {
-  chart: {
-    type: 'line',
-  },
-  title: {
-    text: '',
-  },
-  subtitle: {
-    text: '',
-  },
-  xAxis: {
-    type: 'category',
-    title: {
-      text: null,
-      // align: 'high'
-    },
-    labels: {
-      rotation: -45,
-      overflow: 'justify',
-      style: {
-        fontSize: '13px',
-        fontFamily: 'Verdana, sans-serif',
-      },
-    },
-  },
-  colors: ['#6CF', '#39F', '#06C', '#036', '#000'],
-  credits: {
-    enabled: false,
-  },
-  yAxis: {
-    min: 0,
-    title: {
-      text: '',
-    },
-  },
-  legend: {
-    enabled: true,
-  },
-  // tooltip: {
-  //     formatter: function() {
-  //         console.log(this)
-  //         return this.key +': <br/> '+this.y;
-  //     }
-  // },
-  tooltip: {
-    // pointFormat: ' <b>{point.y:.1f}</b>'
-  },
-  plotOptions: {
-    column: {
-      dataLabels: {
-        enabled: true,
-        // format: '{y}°C'
-      },
-    },
-  },
-  series: [
-    {
-      name: '',
-      data: [],
-      // dataLabels: {
-      //     enabled: true,
-      //     rotation: -90,
-      //     color: '#FFFFFF',
-      //     align: 'right',
-      //     format: '{point.y:.1f}', // one decimal
-      //     y: 10, // 10 pixels down from the top
-      //     style: {
-      //         fontSize: '13px',
-      //         fontFamily: 'Verdana, sans-serif'
-      //     }
-      // }
-    },
-  ],
-};
-
-function Highchart(props) {
-  const { options: option, heights } = props;
+export default function App(props) {
+  const DataFormater = (number) => {
+    if (number > 1000000000) {
+      return `${(number / 1000000000).toString()}B`;
+    }
+    if (number > 1000000) {
+      return `${(number / 1000000).toString()}M`;
+    }
+    if (number > 1000) {
+      return `${(number / 1000).toString()}K`;
+    }
+    return number.toString();
+  };
   return (
-    <HighchartsReact
-      highcharts={Highcharts}
-      options={option}
-      containerProps={{ style: { height: heights } }}
-    />
+    <ResponsiveContainer width="95%" height={300}>
+      <LineChart
+        width={500}
+        height={300}
+        data={props.data}
+        margin={{
+          top: 5,
+          right: 30,
+          left: 20,
+          bottom: 5,
+        }}
+      >
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis
+          dataKey="xData"
+          axisLine={false}
+          // angle={45}
+          // dx={15}
+          // dy={20}
+        />
+        <YAxis
+          tickFormatter={DataFormater}
+          label={{
+            value: `no of ${props?.lines[0]}`,
+            angle: -90,
+            position: 'left',
+          }}
+        />
+        <Tooltip />
+        <Legend verticalAlign="top" />
+        {props?.lines?.map((elm) => (
+          <Line type="monotone" dataKey={elm} stroke={props?.color} />
+        ))}
+      </LineChart>
+    </ResponsiveContainer>
   );
 }
-Highchart.propTypes = {
-  heights: PropTypes.number,
-  // eslint-disable-next-line react/forbid-prop-types
-  options: PropTypes.object,
-};
-
-Highchart.defaultProps = {
-  heights: '200px',
-  options: {},
-};
-
-export default Highchart;

@@ -4,7 +4,7 @@ import { Row, Col } from 'react-bootstrap';
 import moment from 'moment';
 import _ from 'lodash';
 import { getConInfo } from './actions';
-import LineChart, { options } from '../../Components/Linecharts';
+import LineChart from '../../Components/Linecharts';
 import Statuses from './componets/Statuses';
 import Search from './componets/Search';
 import CountStatus from '../../Components/CounStatus';
@@ -14,41 +14,23 @@ import useStickSWR from '../../hooks/swrFetch';
 
 function Home() {
   const [Global, setGlobal] = useState({});
-  const [countryDetails, setCountry] = useState({});
+
   const { data } = useStickSWR(Url.summary + Url.allCountries);
   const { summary, allCountries: countryData } = data;
+  const [linechartData, setLinechartData] = useState([]);
 
   const arrangeGraph = (timeline) => {
     const { cases, deaths, recovered } = timeline;
-    const cas = { name: 'Cases', data: [] };
-    const death = { name: 'Deaths', data: [] };
-    const recover = { name: 'Recovered', data: [] };
-    const xData = [];
+    const linechartDatas = [];
     Object.keys(cases).forEach((key) => {
-      cas.data.push(cases[key]);
-      death.data.push(deaths[key]);
-      recover.data.push(recovered[key]);
-      xData.push(moment(key).format('MMM Do'));
+      linechartDatas.push({
+        cases: cases[key],
+        deaths: deaths[key],
+        recovered: recovered[key],
+        xData: moment(key).format('MMM Do'),
+      });
     });
-    const option1 = _.clone(options, true);
-    option1.series = [cas];
-    option1.colors = ['#ffc107'];
-    option1.xAxis = { categories: xData };
-    option1.yAxis = { title: { text: 'no of cases' } };
-
-    const option2 = _.clone(options, true);
-    option2.series = [death];
-    option2.colors = ['#6c757d'];
-    option2.yAxis = { title: { text: 'no of deaths' } };
-    option2.xAxis = { categories: xData };
-
-    const option3 = _.clone(options, true);
-    option3.series = [recover];
-    option3.xAxis = { categories: xData };
-    option3.yAxis = { title: { text: 'no of recovered' } };
-    option3.colors = ['#17a2b8'];
-
-    setCountry({ cases: option1, deaths: option2, recovered: option3 });
+    setLinechartData(linechartDatas);
   };
 
   const changeSelect = async (country) => {
@@ -73,28 +55,31 @@ function Home() {
           <CountStatus key={Global.cases} Global={Global} />
           <Row>
             <Col lg={6}>
-              {countryDetails.cases && (
+              {linechartData && (
                 <Row>
                   <Col lg={12} />
                   <Col lg={12}>
                     <div style={{ padding: '20px 0px' }}>
-                      <LineChart options={countryDetails.cases} />
+                      <LineChart
+                        data={linechartData}
+                        lines={['cases']}
+                        color="#ffc107"
+                      />
                     </div>
                   </Col>
                   <Col lg={12}>
                     <div style={{ padding: '20px 0px' }}>
-                      <LineChart options={countryDetails.deaths} />
-                    </div>
-                  </Col>
-                  <Col lg={12}>
-                    <div style={{ padding: '20px 0px' }}>
-                      <LineChart options={countryDetails.recovered} />
+                      <LineChart
+                        data={linechartData}
+                        lines={['deaths']}
+                        color="#6c757d"
+                      />
                     </div>
                   </Col>
                 </Row>
               )}
             </Col>
-            {countryDetails?.cases && (
+            {Global?.countryInfo && (
               <Col lg={6}>
                 <Mapchart countryData={Global.countryInfo} />
               </Col>

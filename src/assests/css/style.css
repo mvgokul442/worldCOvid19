@@ -36,6 +36,11 @@ a:hover {
   text-decoration: none;
 }
 
+.recharts-cartesian-axis-tick {
+  font-size: 12px;
+  font-family: Roboto, sans-serif;
+}
+
 @media only screen and (max-width: 600px) {
   body {
     font-size: 10px;
